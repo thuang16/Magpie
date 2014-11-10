@@ -1,3 +1,5 @@
+import java.util.Random;
+
 /**
  * A program to carry on conversations with a human user.
  * This is the initial version that:  
@@ -197,38 +199,19 @@ public class Magpie
    * Pick a default response to use if nothing else fits.
    * @return a non-committal string
    */
-  private String getRandomResponse()
-  {
-    final int NUMBER_OF_RESPONSES = 6;
-    double r = Math.random();
-    int whichResponse = (int)(r * NUMBER_OF_RESPONSES);
-    String response = "";
-    
-    if (whichResponse == 0)
-    {
-      response = "Interesting, tell me more.";
-    }
-    else if (whichResponse == 1)
-    {
-      response = "Hmmm.";
-    }
-    else if (whichResponse == 2)
-    {
-      response = "Do you really think so?";
-    }
-    else if (whichResponse == 3)
-    {
-      response = "You don't say.";
-    }
-    else if (whichResponse == 4)
-    {
-      response = "Do you really mean that?";
-    }
-    else if (whichResponse == 5)
-    {
-      response = "I would like to hear more!";
-    }
-    
-    return response;
-  }
+  private String getRandomResponse ()
+ {
+  Random r = new Random ();
+  return randomResponses [r.nextInt(randomResponses.length)];
+ }
+ 
+ private String [] randomResponses = {"Interesting, tell me more",
+   "Hmmm.",
+   "Do you really think so?",
+   "You don't say.",
+   "Do you really mean that?",
+   "How fascinating",
+   "Okay",
+   "Wow, I would love to talk more about this"
+ };
 }
