@@ -1,0 +1,10 @@
+public class pasttense
+{
+String[] irregularinfinitives = 
+{"arise",  "babysit",  "beat",  "become",  "bend",  "begin",  "bet",  "bind",  "bite",  "bleed",  "blow",  "break", "breed",  "bring",  "broadcast",  "build",  "buy", "catch",  "choose",  "come",  "cost",  "cut",  "deal",  "dig",  "do", "draw",  "drink",  "drive",  "eat",  "fall",  "feed",  "feel",  "fight",  "find",  "fly",  "forbid",  "forget", "forgive", "freeze",  "get",  "give",  "go",  "grow",  "hang",  "have",  "hear",  "hide",  "hit",  "hold",  "hurt",  "keep",  "know", "lay",  "lead", "leave",  "lend",  "let",  "lie", "light",  "lose",  "make",  "mean",  "meet", "pay",  "put",  "quit", "read",  "ride",  "ring",  "rise",  "run",  "say",  "see",  "sell",  "send",  "set",  "shake", "shine",  "shoot",  "show", "shut",  "sing",  "sink",  "sit",  "sleep",  "slide",  "speak",  "spend",  "spin",  "spread",  "stand",  "steal",  "stick", "sting",  "strike",  "swear",  "sweep",  "swim",  "swing",  "take",  "teach",  "tear",  "tell",  "think",  "throw", "understand",  "wake",  "wear",  "win",  "withdraw", "write"};
+
+String [] irregularpast = 
+{"arose",  "babysat", "beat",  "became",  "bent",  "began",  "bet",  "bound",  "bit",  "bled",  "blew",  "broke",  "bred",  "brought",  "broadcast",  "built",  "bought",  "caught",  "chose",  "came",  "cost",  "cut",  "dealt",  "dug",  "did",  "drew",  "drank",  "drove",  "ate",  "fell",  "fed",  "felt",  "fought",  "found", "flew",  "forbade",  "forgot",  "forgave",  "froze",  "got",  "gave",  "went",  "grew",  "hung",  "had",  "heard",  "hid",  "hit",  "held",  "hurt",  "kept",  "knew",  "laid",  "led",  "left",  "lent",  "let",  "lay", "lit",  "lost",  "made",  "meant",  "met", "paid",  "put",  "quit",  "read",  "rode",  "rang", "rose",  "ran",  "said",  "saw",  "sold",  "sent",  "set",  "shook",  "shone",  "shot",  "showed",  "shut",  "sang",  "sank",  "sat",  "slept",  "slid",  "spoke",  "spent",  "spun",  "spread",  "stood",  "stole",  "stuck",  "stung",  "struck",  "swore",  "swept",  "swam",  "swung",  "took",  "taught",  "tore",  "told",  "thought",  "threw",  "understood",  "woke",  "wore",  "won",  "withdrew",  "wrote"};
+}
+
+

@@ -1,0 +1,12 @@
+String [] irregularinfinitives =
+{
+  "arise",  "babysit",  "be",  "beat",  "become",  "bend",  "begin",  "bet",  "bind",  "bite",  "bleed",  "blow",  "break",  
+  "breed",  "bring",  "broadcast",  "build",  "buy", "catch",  "choose",  "come",  "cost",  "cut",  "deal",  "dig",  "do",  
+  "draw",  "drink",  "drive",  "eat",  "fall",  "feed",  "feel",  "fight",  "find",  "fly",  "forbid",  "forget",  "forgive",
+  "freeze",  "get",  "give",  "go",  "grow",  "hang",  "have",  "hear",  "hide",  "hit",  "hold",  "hurt",  "keep",  "know", 
+  "lay",  "lead", "leave",  "lend",  "let",  "lie", "light",  "lose",  "make",  "mean",  "meet", "pay",  "put",  "quit", 
+  "read",  "ride",  "ring",  "rise",  "run",  "say",  "see",  "sell",  "send"  "set",  "shake", "shine",  "shoot",  "show",
+  "shut",  "sing",  "sink",  "sit"  "sleep",  "slide",  "speak",  "spend",  "spin",  "spread",  "stand",  "steal",  "stick", 
+  "sting",  "strike",  "swear",  "sweep",  "swim",  "swing",  "take",  "teach",  "tear",  "tell",  "think",  "throw", 
+  "understand",  "wake",  "wear",  "win",  "withdraw", "write";
+}
