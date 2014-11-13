@@ -30,7 +30,7 @@ public class Magpie
    */
   public String getResponse(String statement)
   {
-    statement = statement.toLowerCase();
+    statement = statement.toLowerCase();// sets statement to lower case
     String response = "";
     if (findKeyword(statement,"no") >= 0)
     {
@@ -74,25 +74,49 @@ public class Magpie
     {
       response = "bot? I am not a bot, silly.";
     }
-     else if (findKeyword(statement, "is", 0) >= 0)
+    else if (findKeyword(statement, "is", 0) >= 0)
     {
-       //returns a question if the statement contains "is"
-     statement = process(statement);
+      //returns a question if the statement contains "is"
+      statement = process(statement);
       response = "Why is" + statement.substring(0,findKeyword(statement, "is", 0)) + statement.substring(findKeyword(statement, "is", 0) + 3, statement.length());
-      if (findKeyword(statement, "you", 0) >= 0)
-       {
+      
+      if(findKeyword(statement, "you", 0) >= 0 && findKeyword(statement, "me", 0) >= 0) // if there is both you and me, replaces "you" with "me" and "me" with "you" so that it doesn't get changed twice.
+      {
+        if (findKeyword(statement, "you",0) > findKeyword(statement,"me",0))
+        {
+          //puts me and you in seperate strings, change me to you and you to me and then combine them at the end so they don't get changed twice.
+          String temp = response.substring(0, findKeyword(response,"me",0) + 3);
+          temp = temp.replace(" me ", " you ");
+          String temp2 = response.substring(findKeyword(response,"me",0) + 3, response.length());
+          temp2 = temp2.replace(" you ", " me ");
+          response = temp + temp2;
+        }
+        if (findKeyword(statement, "me",0) > findKeyword(statement,"you",0))
+        {
+          String temp = response.substring(0, findKeyword(response,"you",0) + 4);
+          temp = temp.replace(" you ", " me ");
+          String temp2 = response.substring(findKeyword(response,"you",0) + 4, response.length());
+          temp2 = temp2.replace(" me ", " you ");
+          response = temp + temp2;
+        }
+      }
+      
+      else if (findKeyword(statement, "you", 0) >= 0)
+      {
         response = response.replace(" you ", " me "); //replaces you with me
       }
-        if (findKeyword(statement, "me", 0) >= 0)
-       {
+      else if (findKeyword(statement, "me", 0) >= 0)
+      {
         response = response.replace(" me ", " you "); //replaces me with you
-    }
+        
+        
       }
-     
+    }
+    
     else if (findKeyword(statement, "are", 0) >= 0)
     {
       //returns a question if the statement contains "are"
-    statement = process(statement);
+      statement = process(statement);
       response = "Why are" + statement.substring(0,findKeyword(statement, "are", 0)) + statement.substring(findKeyword(statement, "are", 0) + 4, statement.length());
       if (findKeyword(statement, "you", 0) >= 0 && findKeyword(statement, "you", 0) < findKeyword(statement, "are", 0))
       {
@@ -100,32 +124,32 @@ public class Magpie
         // if statement includes "you are" returns question starting with "why am I"
       } 
       else if (findKeyword(statement, "you", 0) >= 0)
-       {
+      {
         response = response.replace(" you ", " me ");
       }
-       else if (findKeyword(statement, "me", 0) >= 0)
-       {
+      else if (findKeyword(statement, "me", 0) >= 0)
+      {
         response = response.replace(" me ", " you ");
       }
     }
-        
     
     
-  else if (findKeyword(statement, "am", 0) >= 0)
+    
+    else if (findKeyword(statement, "am", 0) >= 0)
     {
-    //returns a question if statement contains "am"
-    statement = process(statement);
-    String temp = statement.substring(findKeyword(statement, "am", 0) + 3, statement.length());
-        if (findKeyword(statement, "you", 0) >= 0)
-       {
+      //returns a question if statement contains "am"
+      statement = process(statement);
+      String temp = statement.substring(findKeyword(statement, "am", 0) + 3, statement.length());
+      if (findKeyword(statement, "you", 0) >= 0)
+      {
         temp = temp.replace(" you ", " me ");
       }
-        if (findKeyword(statement, "me", 0) >= 0)
-       {
+      if (findKeyword(statement, "me", 0) >= 0)
+      {
         temp = temp.replace(" me ", " you ");
+      }
+      response = "Why are you" +  temp;
     }
-        response = "Why are you" +  temp;
-  }
     else if (findKeyword(statement, "I want", 0) >= 0)
     {
       int psn = findKeyword(statement, "I want", 0);
@@ -163,7 +187,7 @@ public class Magpie
     statement = " " + statement + " ";
     return statement;
   }
-    
+  
   private String transformIWantStatement(String statement)
   {
 // Remove the final period, if there is one
@@ -257,8 +281,8 @@ public class Magpie
     "Do you really think so?",
     "You don't say.",
     "Do you really mean that?",
-    "How fascinating",
-    "Okay",
-    "Wow, I would love to talk more about this"
+    "How fascinating.",
+    "Okay.",
+    "Wow, I would love to talk more about this."
   };
 }

@@ -76,41 +76,29 @@ public class Magpie
     }
      else if (findKeyword(statement, "is", 0) >= 0)
     {
-    statement = statement.replace(".","");
-    statement = statement.replace(",","");
-    statement = statement.replace("!","");
-    statement = statement.replace("?","");
-    statement = " " + statement + " ";
+       //returns a question if the statement contains "is"
+     statement = process(statement);
       response = "Why is" + statement.substring(0,findKeyword(statement, "is", 0)) + statement.substring(findKeyword(statement, "is", 0) + 3, statement.length());
       if (findKeyword(statement, "you", 0) >= 0)
        {
-        response = response.replace(" you ", " me ");
+        response = response.replace(" you ", " me "); //replaces you with me
       }
         if (findKeyword(statement, "me", 0) >= 0)
        {
-        response = response.replace(" me ", " you ");
+        response = response.replace(" me ", " you "); //replaces me with you
     }
       }
      
     else if (findKeyword(statement, "are", 0) >= 0)
     {
-    statement = statement.replace(".","");
-    statement = statement.replace(",","");
-    statement = statement.replace("!","");
-    statement = statement.replace("?","");
-    statement = " " + statement + " ";
+      //returns a question if the statement contains "are"
+    statement = process(statement);
       response = "Why are" + statement.substring(0,findKeyword(statement, "are", 0)) + statement.substring(findKeyword(statement, "are", 0) + 4, statement.length());
       if (findKeyword(statement, "you", 0) >= 0 && findKeyword(statement, "you", 0) < findKeyword(statement, "are", 0))
       {
-        response = "Why am I" + statement.substring(findKeyword(statement, "are", 0) + 4, statement.length());
-      }
-      if (findKeyword(statement, "you", 0) >= 0 && findKeyword(statement, "me", 0) >= 0)
-      {
-        if (findKeyword(statement, "you", 0) > findKeyword(statement, "me", 0))
-        {
-        response = response.substring(0, findKeyword(statement, "me")) + "you" + response.substring(findKeyword(statement, "me", 0) + 2,findKeyword(statement, "you", 0)) + "me" + response.substring(findKeyword(statement, "you", 0) + 2, response.length()); 
-      }
-      }
+        response = "Why am I" + statement.substring(findKeyword(statement, "are", 0) + 4, statement.length());// 
+        // if statement includes "you are" returns question starting with "why am I"
+      } 
       else if (findKeyword(statement, "you", 0) >= 0)
        {
         response = response.replace(" you ", " me ");
@@ -125,11 +113,8 @@ public class Magpie
     
   else if (findKeyword(statement, "am", 0) >= 0)
     {
-    statement = statement.replace(".","");
-    statement = statement.replace(",","");
-    statement = statement.replace("!","");
-    statement = statement.replace("?","");
-    statement = " " + statement + " ";
+    //returns a question if statement contains "am"
+    statement = process(statement);
     String temp = statement.substring(findKeyword(statement, "am", 0) + 3, statement.length());
         if (findKeyword(statement, "you", 0) >= 0)
        {
@@ -168,6 +153,17 @@ public class Magpie
     }
     return response;
   }
+  private String process(String statement)
+  {
+    //removes punctuations and adds spaces at beginning and end of input
+    statement = statement.replace(".","");
+    statement = statement.replace(",","");
+    statement = statement.replace("!","");
+    statement = statement.replace("?","");
+    statement = " " + statement + " ";
+    return statement;
+  }
+    
   private String transformIWantStatement(String statement)
   {
 // Remove the final period, if there is one
